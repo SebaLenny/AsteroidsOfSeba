@@ -1,2 +1,2 @@
 # AsteroidsOfSeba
-Sall little project revolving around asteroids.
+Small little project revolving around asteroids.
