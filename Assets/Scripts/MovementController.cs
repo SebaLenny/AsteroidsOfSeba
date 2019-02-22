@@ -19,9 +19,7 @@ public class MovementController : MonoBehaviour
 
     private void Update()
     {
-        float thrust = thrustForce * inputController.InputVector.y;
-        float steer = steeringForce * inputController.InputVector.x;
-        rb.AddRelativeForce(0f, 0f, thrust);
-        rb.AddTorque(0f, steer, 0f);
+        rb.AddRelativeForce(0f, 0f, thrustForce * inputController.InputVector.y);
+        rb.AddTorque(0f, steeringForce * inputController.InputVector.x, 0f);
     }
 }

@@ -1,15 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class NormalCanon : MonoBehaviour , IShootable
+public class NormalCanon : MonoBehaviour, IShootable
 {
     private InputController inputController;
+
     [SerializeField]
     private float shootingPeriod = 1f;
+
     private float lastShoot;
+
     [SerializeField]
     private GameObject bullet;
+
+    [SerializeField]
+    private Transform spawnPoint;
+
+    private Transform _spawnPoint;
 
     private void Awake()
     {
@@ -20,6 +26,7 @@ public class NormalCanon : MonoBehaviour , IShootable
 
     public void Shoot()
     {
+        _spawnPoint = spawnPoint == null ? transform : spawnPoint;
         if (lastShoot + shootingPeriod < Time.time)
         {
             PerformShoot();
@@ -29,7 +36,6 @@ public class NormalCanon : MonoBehaviour , IShootable
 
     private void PerformShoot()
     {
-        GameObject dummyBullet = Instantiate(bullet, transform.position, transform.rotation, null);
+        GameObject dummyBullet = Instantiate(bullet, _spawnPoint.position, _spawnPoint.rotation, null);
     }
-
 }

@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 
-public class BulletController : MonoBehaviour
+public class BulletStarter : MonoBehaviour
 {
     private Rigidbody rb;
+
     [SerializeField]
     private float bulletSpeed = 30f;
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.AddRelativeForce(0f, 0f, bulletSpeed);
